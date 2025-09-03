@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Viewport reforçado para evitar zoom estranho no mobile/iOS -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
     <title>Castelão Locações — Aluguel de Equipamentos em Sinop-MT</title>
     <meta name="description"
         content="Aluguel de equipamentos em Sinop-MT. Fale direto no WhatsApp com nossos vendedores para orçamentos rápidos." />
@@ -11,6 +13,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ===== Resets que ajudam no mobile ===== */
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
         :root {
             --brand: #0b3b5b;
             /* azul */
@@ -26,13 +51,10 @@
             --max: 1120px;
         }
 
-        * {
-            box-sizing: border-box
-        }
-
-        html,
         body {
-            height: 100%
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
         }
 
         .brand-logo-img {
@@ -42,22 +64,25 @@
         }
 
 
-        body {
-            margin: 0;
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
-
         a {
             color: inherit;
             text-decoration: none
         }
 
+        /* container sempre ocupa toda largura da tela (sem encolher) */
         .container {
             max-width: var(--max);
+            width: 100%;
             margin-inline: auto;
             padding: 16px
+        }
+
+        /* Faz mídia nunca extrapolar */
+        img,
+        svg,
+        video {
+            max-width: 100%;
+            height: auto
         }
 
         /* Header */
@@ -67,7 +92,7 @@
             z-index: 50;
             background: linear-gradient(180deg, #0b3b5b 0%, #0b3b5b 60%, rgba(11, 59, 91, .92) 100%);
             color: #fff;
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
         }
 
         .topbar {
@@ -84,6 +109,7 @@
             gap: 12px
         }
 
+        /* Se já tiver logo, troque pelo <img class="brand-logo-img"> */
         .brand-logo {
             width: 40px;
             height: 40px;
@@ -92,7 +118,14 @@
             display: grid;
             place-items: center;
             color: #fff;
-            font-weight: 800;
+            font-weight: 800
+        }
+
+        .brand-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            display: block
         }
 
         .brand h1 {
@@ -293,6 +326,7 @@
             font-size: 16px
         }
 
+        /* >=16px evita zoom ao focar */
         .search button {
             padding: 12px 16px;
             border-radius: 999px;
@@ -333,15 +367,11 @@
             width: 100%;
             height: 180px;
             object-fit: contain;
-            /* Evita cortar as imagens */
             aspect-ratio: 4 / 3;
-            /* Proporção confortável */
             border-radius: 12px;
             background: #fff;
-            /* Fundo neutro para PNGs/transparências */
             padding: 8px;
-            /* Respiro para imagens horizontais/verticais */
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e5e7eb
         }
 
         .card h3 {
@@ -450,7 +480,7 @@
             }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width:1024px) {
             .grid {
                 grid-template-columns: repeat(4, 1fr)
             }
@@ -465,13 +495,14 @@
                 <img src="img/logo.png" alt="Castelão Locações" class="brand-logo-img">
                 <h1>CASTELÃO LOCAÇÕES</h1>
             </div>
+
             <div class="wa-actions">
                 <a class="btn btn-wa" target="_blank" rel="noopener"
                     href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20."
                     aria-label="Falar no WhatsApp (Vendedor 1)">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
-                            d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.46 0 .1 5.36.1 11.96c0 2.1.56 4.15 1.62 5.95L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.5h.01c6.6 0 11.96-5.36 11.96-11.96a11.9 11.9 0 0 0-3.5-8.43ZM12.07 22.1h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.7.97.99-3.61-.24-.37a10 10 0 1 1 8.43 4.63Zm5.48-7.5c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.29-.77.97-.94 1.17-.17.2-.35.22-.65.07-1.76-.88-2.9-1.57-4.05-3.56-.3-.52.3-.48.87-1.62.1-.2.05-.36-.03-.5-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.36-.26.3-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.02.15.2 2.02 3.08 4.9 4.32.68.29 1.22.46 1.63.6.68.21 1.3.18 1.8.11.55-.08 1.76-.72 2-1.4.25-.66.25-1.24.18-1.36-.07-.12-.27-.19-.57-.34Z" />
+                            d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.46 0 .1 5.36.1 11.96c0 2.1.56 4.15 1.62 5.95L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.5h.01c6.6 0 11.96-5.36 11.96-11.96a11.9 11.9 0 0 0-3.5-8.43Z" />
                     </svg>
                     Vendedor 1
                 </a>
@@ -570,7 +601,8 @@
                 <button id="btnSearch" type="button">Buscar</button>
             </div>
             <p class="small" style="margin:8px 12px 0">Dica: você também pode filtrar por categoria clicando nos chips
-                acima.</p>
+                acima.
+            </p>
         </section>
 
         <!-- Seções de produtos -->
@@ -611,29 +643,12 @@
                 </div>
                 <div class="socials">
                     <a class="social" target="_blank" rel="noopener"
-                        href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Vim%20pelo%20site.">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.46 0 .1 5.36.1 11.96c0 2.1.56 4.15 1.62 5.95L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.5h.01c6.6 0 11.96-5.36 11.96-11.96a11.9 11.9 0 0 0-3.5-8.43ZM12.07 22.1h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.7.97.99-3.61-.24-.37a10 10 0 1 1 8.43 4.63Zm5.48-7.5c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.29-.77.97-.94 1.17-.17.2-.35.22-.65.07-1.76-.88-2.9-1.57-4.05-3.56-.3-.52.3-.48.87-1.62.1-.2.05-.36-.03-.5-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.36-.26.3-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.02.15.2 2.02 3.08 4.9 4.32.68.29 1.22.46 1.63.6.68.21 1.3.18 1.8.11.55-.08 1.76-.72 2-1.4.25-.66.25-1.24.18-1.36-.07-.12-.27-.19-.57-.34Z" />
-                        </svg>
-                        WhatsApp
-                    </a>
+                        href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Vim%20pelo%20site.">WhatsApp</a>
                     <a class="social" target="_blank" rel="noopener" href="https://instagram.com/"
-                        aria-label="Instagram">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7Zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10Zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm5.8-.9a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z" />
-                        </svg>
-                        Instagram
-                    </a>
+                        aria-label="Instagram">Instagram</a>
                     <a class="social" target="_blank" rel="noopener"
-                        href="https://maps.google.com/?q=Rua%20Jangada%20365%20Sinop%20MT" aria-label="Localização">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Zm0 10.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
-                        </svg>
-                        Localização
-                    </a>
+                        href="https://maps.google.com/?q=Rua%20Jangada%20365%20Sinop%20MT"
+                        aria-label="Localização">Localização</a>
                 </div>
                 <div class="small">© <span id="yr"></span> Castelão Locações — Sinop‑MT</div>
             </div>
@@ -682,10 +697,10 @@
             { id: 'p7', nome: 'Compactador (Sapo)', categoria: 'Compactação', img: 'https://www.dutramaquinas.com.br/shared/img/produto/alta/496964_compactador_de_solo_tipo_sapo_a_gasolina_330_x_290_mm_4_hp_4t_com_rodas_ttr80zm_xp.webp' },
             { id: 'p8', nome: 'Gerador 5 kVA', categoria: 'Energia', img: 'https://d1p6nzzdute2g.cloudfront.net/lojas/loja-36/9d2c7542-ef42-4fbe-a5f6-c71cee9e527a' },
             /* Aditivos */
-            { id: 'a1', nome: 'Plastificante para argamassa', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1562259949-e8e7689d7829?q=80&w=1200&auto=format&fit=crop' },
-            { id: 'a2', nome: 'Impermeabilizante para concreto', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop' },
-            { id: 'a3', nome: 'Aditivo adesivo (cola PVA)', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1562259949-6e3b2ef7b4a9?q=80&w=1200&auto=format&fit=crop' },
-            { id: 'a4', nome: 'Acelerador de pega', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop' }
+            { id: 'a1', nome: 'Plastificante para argamassa', categoria: 'Aditivos', img: 'https://images.tcdn.com.br/img/img_prod/554605/aditivo_plastificante_concentrado_para_argamassa_vedalit_18_l_vedacit_120127_1_a2f8f1264fa48c5d066524c5c1dc52e4.jpg' },
+            { id: 'a2', nome: 'Impermeabilizante para concreto', categoria: 'Aditivos', img: 'https://images.tcdn.com.br/img/img_prod/1019484/impermeabilizante_para_concreto_sos_concreto_1l_135_1_f3395d4b14ef4cb90b875cad2cd3e2fd.png' },
+            { id: 'a3', nome: 'Aditivo adesivo (cola PVA)', categoria: 'Aditivos', img: 'https://http2.mlstatic.com/D_Q_NP_925134-MLA80836960919_112024-O.webp' },
+            { id: 'a4', nome: 'Acelerador de pega', categoria: 'Aditivos', img: 'https://distribuidorasika.vtexassets.com/arquivos/ids/156069-800-800?v=638001184466400000&width=800&height=800&aspect=true' }
         ];
 
         const gridMais = document.getElementById('gridMais');
@@ -711,15 +726,10 @@
         }
 
         function render() {
-            // Mais alugados (pega 4 primeiros)
             gridMais.innerHTML = produtos.slice(0, 4).map(cardHTML).join('');
-            // Concretagem
             gridConc.innerHTML = produtos.filter(p => p.categoria.includes('Concretagem')).map(cardHTML).join('');
-            // Perfuração & Demolição
             gridPerf.innerHTML = produtos.filter(p => p.categoria.includes('Perfuração')).map(cardHTML).join('');
-            // Andaime
             gridAnd.innerHTML = produtos.filter(p => p.categoria.includes('Andaimes')).map(cardHTML).join('');
-            // Aditivos
             gridAditivos.innerHTML = produtos.filter(p => p.categoria.includes('Aditivos')).map(cardHTML).join('');
         }
         render();
@@ -727,7 +737,6 @@
         // ===== Busca de produtos =====
         const q = document.getElementById('q');
         const btnSearch = document.getElementById('btnSearch');
-
         function performSearch() {
             const term = q.value.trim().toLowerCase();
             const allCards = document.querySelectorAll('.card');
