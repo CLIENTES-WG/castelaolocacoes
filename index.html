@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Castelão Locações — Aluguel de Equipamentos em Sinop-MT</title>
+    <meta name="description"
+        content="Aluguel de equipamentos em Sinop-MT. Fale direto no WhatsApp com nossos vendedores para orçamentos rápidos." />
+    <meta name="theme-color" content="#0b3b5b" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #0b3b5b;
+            /* azul */
+            --accent: #dd6a1e;
+            /* laranja */
+            --bg: #f7f8fa;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #6b7280;
+            --radius: 16px;
+            --shadow: 0 10px 24px rgba(2, 8, 23, .08);
+            --shadow-sm: 0 6px 16px rgba(2, 8, 23, .06);
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        .brand-logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: var(--max);
+            margin-inline: auto;
+            padding: 16px
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: linear-gradient(180deg, #0b3b5b 0%, #0b3b5b 60%, rgba(11, 59, 91, .92) 100%);
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #ff914d);
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            line-height: 1.1;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: .3px
+        }
+
+        .wa-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 0;
+            cursor: pointer;
+            font-weight: 700;
+            transition: transform .08s ease, box-shadow .2s ease
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #083b1e;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .28)
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px
+        }
+
+        nav {
+            background: #092d45
+        }
+
+        .nav-scroller {
+            display: flex;
+            gap: 10px;
+            overflow: auto;
+            padding: 8px 16px;
+            scrollbar-width: none
+        }
+
+        .nav-scroller::-webkit-scrollbar {
+            display: none
+        }
+
+        .chip {
+            flex: 0 0 auto;
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            font-size: 13px
+        }
+
+        /* Hero / Carousel */
+        .hero {
+            padding: 14px 0 8px
+        }
+
+        .carousel {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--surface);
+            box-shadow: var(--shadow)
+        }
+
+        .slides {
+            display: flex;
+            transition: transform .6s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center
+        }
+
+        .slide-inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 18px
+        }
+
+        .slide-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text)
+        }
+
+        .slide-sub {
+            color: #111827;
+            background: linear-gradient(90deg, #ffe8d8, #fff);
+            border-left: 4px solid var(--accent);
+            padding: 8px 10px;
+            border-radius: 10px
+        }
+
+        .slide-cta {
+            margin-top: 6px
+        }
+
+        .bullets {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .25);
+            border: 1px solid rgba(255, 255, 255, .7)
+        }
+
+        .dot.active {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .ctrl {
+            position: absolute;
+            inset-block: 0;
+            display: grid;
+            place-items: center;
+            padding: 8px
+        }
+
+        .ctrl.prev {
+            left: 0
+        }
+
+        .ctrl.next {
+            right: 0
+        }
+
+        .ctrl-btn {
+            background: rgba(255, 255, 255, .9);
+            border: 1px solid rgba(2, 8, 23, .06);
+            backdrop-filter: saturate(140%) blur(6px);
+            border-radius: 999px;
+            padding: 8px;
+            cursor: pointer
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #eee
+        }
+
+        /* Search */
+        .search {
+            margin: 18px 0
+        }
+
+        .search .field {
+            display: flex;
+            gap: 8px
+        }
+
+        .search input {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            outline: none;
+            font-size: 16px
+        }
+
+        .search button {
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: 0;
+            background: var(--brand);
+            color: #fff;
+            font-weight: 700
+        }
+
+        /* Sections */
+        .section {
+            margin: 14px 0
+        }
+
+        .section h2 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            font-weight: 800;
+            color: #0a2540
+        }
+
+        .grid {
+            display: grid;
+            gap: 12px
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 18px;
+            box-shadow: var(--shadow-sm);
+            padding: 12px;
+            display: grid;
+            gap: 10px;
+            border: 1px solid #eef2f7
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            /* Evita cortar as imagens */
+            aspect-ratio: 4 / 3;
+            /* Proporção confortável */
+            border-radius: 12px;
+            background: #fff;
+            /* Fundo neutro para PNGs/transparências */
+            padding: 8px;
+            /* Respiro para imagens horizontais/verticais */
+            border: 1px solid #e5e7eb;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.3
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .card .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .btn-pill {
+            flex: 1 1 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: var(--brand);
+            border: 1px solid #cbd5e1
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 18px;
+            background: #0b3b5b;
+            color: #e5eef6
+        }
+
+        .footer-inner {
+            padding: 18px
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 12px
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px
+        }
+
+        .social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            padding: 8px 12px;
+            border-radius: 999px
+        }
+
+        .small {
+            font-size: 13px;
+            color: #cfe2f2
+        }
+
+        /* Desktop tweaks */
+        @media (min-width: 720px) {
+            .slide-inner {
+                grid-template-columns: 1.1fr .9fr;
+                align-items: center;
+                padding: 24px 28px
+            }
+
+            .slide-title {
+                font-size: 36px
+            }
+
+            .hero-img {
+                height: 280px
+            }
+
+            .grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .section h2 {
+                font-size: 22px
+            }
+
+            .search .field {
+                max-width: 640px
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="topbar container">
+            <div class="brand" aria-label="Castelão Locações">
+                <img src="img/logo.png" alt="Castelão Locações" class="brand-logo-img">
+                <h1>CASTELÃO LOCAÇÕES</h1>
+            </div>
+            <div class="wa-actions">
+                <a class="btn btn-wa" target="_blank" rel="noopener"
+                    href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20."
+                    aria-label="Falar no WhatsApp (Vendedor 1)">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.46 0 .1 5.36.1 11.96c0 2.1.56 4.15 1.62 5.95L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.5h.01c6.6 0 11.96-5.36 11.96-11.96a11.9 11.9 0 0 0-3.5-8.43ZM12.07 22.1h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.7.97.99-3.61-.24-.37a10 10 0 1 1 8.43 4.63Zm5.48-7.5c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.29-.77.97-.94 1.17-.17.2-.35.22-.65.07-1.76-.88-2.9-1.57-4.05-3.56-.3-.52.3-.48.87-1.62.1-.2.05-.36-.03-.5-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.36-.26.3-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.02.15.2 2.02 3.08 4.9 4.32.68.29 1.22.46 1.63.6.68.21 1.3.18 1.8.11.55-.08 1.76-.72 2-1.4.25-.66.25-1.24.18-1.36-.07-.12-.27-.19-.57-.34Z" />
+                    </svg>
+                    Vendedor 1
+                </a>
+                <a class="btn btn-ghost" target="_blank" rel="noopener"
+                    href="https://wa.me/5566992430422?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20."
+                    aria-label="Falar no WhatsApp (Vendedor 2)">Vendedor 2</a>
+            </div>
+        </div>
+        <nav aria-label="Categorias">
+            <div class="nav-scroller container">
+                <span class="chip">Concretagem</span>
+                <span class="chip">Andaimes & Acesso</span>
+                <span class="chip">Perfuração & Demolição</span>
+                <span class="chip">Compactação</span>
+                <span class="chip">Energia</span>
+                <span class="chip">Jardinagem & Limpeza</span>
+                <span class="chip">Bombas & Hidráulica</span>
+                <span class="chip">Pintura & Acabamento</span>
+                <span class="chip">Medidores / Laser</span>
+                <span class="chip">EPI</span>
+                <span class="chip">Aditivos</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" aria-label="Ofertas em destaque">
+            <div class="carousel" id="carousel">
+                <div class="slides" id="slides">
+                    <!-- Slide 1 -->
+                    <article class="slide" aria-roledescription="slide" aria-label="Betoneira 400L">
+                        <div class="slide-inner">
+                            <div>
+                                <h2 class="slide-title">Betoneira 400 L</h2>
+                                <p class="slide-sub">Robusta e eficiente para sua obra. Clique e fale com a gente no
+                                    WhatsApp.</p>
+                                <div class="slide-cta">
+                                    <a target="_blank" rel="noopener" class="btn btn-wa"
+                                        href="https://wa.me/5566992350616?text=Quero%20alugar%20Betoneira%20400L">Falar
+                                        no WhatsApp</a>
+                                </div>
+                            </div>
+                            <img class="hero-img" src="https://i.ytimg.com/vi/kbGhvuGk-Dk/maxresdefault.jpg"
+                                alt="Betoneira laranja e azul" />
+                        </div>
+                    </article>
+                    <!-- Slide 2 -->
+                    <article class="slide" aria-roledescription="slide" aria-label="Martelete rompedor 5 kg">
+                        <div class="slide-inner">
+                            <div>
+                                <h2 class="slide-title">Martelete Rompedor 5 kg</h2>
+                                <p class="slide-sub">Potência e controle. Toque para solicitar agora pelo WhatsApp.</p>
+                                <div class="slide-cta">
+                                    <a target="_blank" rel="noopener" class="btn btn-wa"
+                                        href="https://wa.me/5566992430422?text=Interesse%20em%20Martelete%205kg">Falar
+                                        no WhatsApp</a>
+                                </div>
+                            </div>
+                            <img class="hero-img"
+                                src="https://triunfoequipamentos.com.br/wp-content/uploads/2019/11/MARTELETE-ROMPEDOR-PERFURADOR-5kg.jpg"
+                                alt="Ferramenta elétrica de demolição" />
+                        </div>
+                    </article>
+                    <!-- Slide 3 -->
+                    <article class="slide" aria-roledescription="slide" aria-label="Andaime e acesso">
+                        <div class="slide-inner">
+                            <div>
+                                <h2 class="slide-title">Andaimes & Acesso</h2>
+                                <p class="slide-sub">Soluções seguras e versáteis para altura. Clique e fale conosco.
+                                </p>
+                                <div class="slide-cta">
+                                    <a target="_blank" rel="noopener" class="btn btn-wa"
+                                        href="https://wa.me/5566992350616?text=Quero%20or%C3%A7amento%20de%20andaimes">Falar
+                                        no WhatsApp</a>
+                                </div>
+                            </div>
+                            <img class="hero-img"
+                                src="https://lomaq.com.br/wp-content/uploads/2023/07/Capacidade-de-carga-dos-andaimes-1200x600.jpg"
+                                alt="Estrutura de andaimes" />
+                        </div>
+                    </article>
+                </div>
+                <div class="ctrl prev"><button class="ctrl-btn" aria-label="Slide anterior" id="prev">&#10094;</button>
+                </div>
+                <div class="ctrl next"><button class="ctrl-btn" aria-label="Próximo slide" id="next">&#10095;</button>
+                </div>
+                <div class="bullets" id="bullets" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- Busca de produtos -->
+        <section class="search container" aria-label="Buscar produtos">
+            <div class="field">
+                <input id="q" type="search" placeholder="Buscar produtos (ex.: betoneira, andaime, martelete)"
+                    aria-label="Buscar produtos" />
+                <button id="btnSearch" type="button">Buscar</button>
+            </div>
+            <p class="small" style="margin:8px 12px 0">Dica: você também pode filtrar por categoria clicando nos chips
+                acima.</p>
+        </section>
+
+        <!-- Seções de produtos -->
+        <section class="section container" aria-label="Mais alugados">
+            <h2>Mais alugados</h2>
+            <div class="grid" id="gridMais"></div>
+        </section>
+
+        <section class="section container" aria-label="Categorias">
+            <h2>Concretagem</h2>
+            <div class="grid" id="gridConcretagem"></div>
+        </section>
+
+        <section class="section container" aria-label="Perfuração & Demolição">
+            <h2>Perfuração & Demolição</h2>
+            <div class="grid" id="gridPerfuracao"></div>
+        </section>
+
+        <section class="section container" aria-label="Andaimes & Acesso">
+            <h2>Andaimes & Acesso</h2>
+            <div class="grid" id="gridAndaime"></div>
+        </section>
+
+        <!-- NOVA SEÇÃO: Aditivos para Concreto e Argamassa -->
+        <section class="section container" aria-label="Aditivos para Concreto e Argamassa">
+            <h2>Aditivos para Concreto e Argamassa</h2>
+            <div class="grid" id="gridAditivos"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner container">
+            <div class="footer-grid">
+                <div>
+                    <strong>Castelão Locações</strong><br />
+                    <span class="small">Rua Jangada, 365 — Bairro Vindilina 3 — Sinop, MT</span><br />
+                    <span class="small">WhatsApp: (66) 9 9235-0616 • (66) 9 9243-0422</span>
+                </div>
+                <div class="socials">
+                    <a class="social" target="_blank" rel="noopener"
+                        href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Vim%20pelo%20site.">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.46 0 .1 5.36.1 11.96c0 2.1.56 4.15 1.62 5.95L0 24l6.23-1.63a11.9 11.9 0 0 0 5.83 1.5h.01c6.6 0 11.96-5.36 11.96-11.96a11.9 11.9 0 0 0-3.5-8.43ZM12.07 22.1h-.01a10 10 0 0 1-5.1-1.4l-.37-.22-3.7.97.99-3.61-.24-.37a10 10 0 1 1 8.43 4.63Zm5.48-7.5c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.29-.77.97-.94 1.17-.17.2-.35.22-.65.07-1.76-.88-2.9-1.57-4.05-3.56-.3-.52.3-.48.87-1.62.1-.2.05-.36-.03-.5-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.36-.26.3-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3.02.15.2 2.02 3.08 4.9 4.32.68.29 1.22.46 1.63.6.68.21 1.3.18 1.8.11.55-.08 1.76-.72 2-1.4.25-.66.25-1.24.18-1.36-.07-.12-.27-.19-.57-.34Z" />
+                        </svg>
+                        WhatsApp
+                    </a>
+                    <a class="social" target="_blank" rel="noopener" href="https://instagram.com/"
+                        aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7Zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10Zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm5.8-.9a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z" />
+                        </svg>
+                        Instagram
+                    </a>
+                    <a class="social" target="_blank" rel="noopener"
+                        href="https://maps.google.com/?q=Rua%20Jangada%20365%20Sinop%20MT" aria-label="Localização">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Zm0 10.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z" />
+                        </svg>
+                        Localização
+                    </a>
+                </div>
+                <div class="small">© <span id="yr"></span> Castelão Locações — Sinop‑MT</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Carousel =====
+        const slides = document.getElementById('slides');
+        const bulletsWrap = document.getElementById('bullets');
+        const total = slides.children.length;
+        let index = 0, timer;
+
+        function renderBullets() {
+            bulletsWrap.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const b = document.createElement('span');
+                b.className = 'dot' + (i === index ? ' active' : '');
+                b.addEventListener('click', () => goTo(i));
+                bulletsWrap.appendChild(b);
+            }
+        }
+        function goTo(i) {
+            index = (i + total) % total;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            renderBullets();
+            restart();
+        }
+        function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
+        document.getElementById('next').addEventListener('click', next);
+        document.getElementById('prev').addEventListener('click', prev);
+        function autoplay() { timer = setInterval(next, 5000); }
+        function restart() { clearInterval(timer); autoplay(); }
+        renderBullets();
+        autoplay();
+
+        // ===== Produtos (dados simples para exemplo) =====
+        const produtos = [
+            { id: 'p1', nome: 'Betoneira 400 L', categoria: 'Concretagem', img: 'https://img.lojadomecanico.com.br/IMAGENS/31/284/147416/1596113228463.JPG' },
+            { id: 'p2', nome: 'Martelete perfurador 2 kg', categoria: 'Perfuração & Demolição', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6LSTvXYRKR_T7BOaBnDyYGa5aJLV7ToX0Iw&s' },
+            { id: 'p3', nome: 'Martelete rompedor 5 kg', categoria: 'Perfuração & Demolição', img: 'https://antferramentas.vtexassets.com/arquivos/ids/177063/Martelete-Demolidor-Rompedor-SDS-Max-1100W-5Kg-Bosch-GSH-5-ant-ferramentas.jpg?v=637849538869930000' },
+            { id: 'p4', nome: 'Andaime tubular', categoria: 'Andaimes & Acesso', img: 'https://loctrad.com/wp-content/uploads/2023/10/Andaime-tubular.webp' },
+            { id: 'p5', nome: 'Prancha/Painel metálico 1,5 m', categoria: 'Andaimes & Acesso', img: 'https://http2.mlstatic.com/D_NQ_NP_823784-MLB74251047053_012024-O.webp' },
+            { id: 'p6', nome: 'Vibrador de imersão', categoria: 'Concretagem', img: 'https://img.lojadomecanico.com.br/IMAGENS/31/572/75454/1703608875363.JPG' },
+            { id: 'p7', nome: 'Compactador (Sapo)', categoria: 'Compactação', img: 'https://www.dutramaquinas.com.br/shared/img/produto/alta/496964_compactador_de_solo_tipo_sapo_a_gasolina_330_x_290_mm_4_hp_4t_com_rodas_ttr80zm_xp.webp' },
+            { id: 'p8', nome: 'Gerador 5 kVA', categoria: 'Energia', img: 'https://d1p6nzzdute2g.cloudfront.net/lojas/loja-36/9d2c7542-ef42-4fbe-a5f6-c71cee9e527a' },
+            /* Aditivos */
+            { id: 'a1', nome: 'Plastificante para argamassa', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1562259949-e8e7689d7829?q=80&w=1200&auto=format&fit=crop' },
+            { id: 'a2', nome: 'Impermeabilizante para concreto', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=1200&auto=format&fit=crop' },
+            { id: 'a3', nome: 'Aditivo adesivo (cola PVA)', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1562259949-6e3b2ef7b4a9?q=80&w=1200&auto=format&fit=crop' },
+            { id: 'a4', nome: 'Acelerador de pega', categoria: 'Aditivos', img: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop' }
+        ];
+
+        const gridMais = document.getElementById('gridMais');
+        const gridConc = document.getElementById('gridConcretagem');
+        const gridPerf = document.getElementById('gridPerfuracao');
+        const gridAnd = document.getElementById('gridAndaime');
+        const gridAditivos = document.getElementById('gridAditivos');
+
+        function cardHTML(p) {
+            const text1 = encodeURIComponent(`Olá! Quero alugar ${p.nome}.`);
+            return `
+      <article class="card" data-nome="${p.nome.toLowerCase()}" data-categoria="${p.categoria.toLowerCase()}">
+        <img src="${p.img}" alt="${p.nome}">
+        <div>
+          <h3>${p.nome}</h3>
+          <div class="meta">${p.categoria}</div>
+        </div>
+        <div class="actions">
+          <a class="btn-pill btn-primary" target="_blank" rel="noopener" href="https://wa.me/5566992350616?text=${text1}">WhatsApp V1</a>
+          <a class="btn-pill btn-outline" target="_blank" rel="noopener" href="https://wa.me/5566992430422?text=${text1}">WhatsApp V2</a>
+        </div>
+      </article>`
+        }
+
+        function render() {
+            // Mais alugados (pega 4 primeiros)
+            gridMais.innerHTML = produtos.slice(0, 4).map(cardHTML).join('');
+            // Concretagem
+            gridConc.innerHTML = produtos.filter(p => p.categoria.includes('Concretagem')).map(cardHTML).join('');
+            // Perfuração & Demolição
+            gridPerf.innerHTML = produtos.filter(p => p.categoria.includes('Perfuração')).map(cardHTML).join('');
+            // Andaime
+            gridAnd.innerHTML = produtos.filter(p => p.categoria.includes('Andaimes')).map(cardHTML).join('');
+            // Aditivos
+            gridAditivos.innerHTML = produtos.filter(p => p.categoria.includes('Aditivos')).map(cardHTML).join('');
+        }
+        render();
+
+        // ===== Busca de produtos =====
+        const q = document.getElementById('q');
+        const btnSearch = document.getElementById('btnSearch');
+
+        function performSearch() {
+            const term = q.value.trim().toLowerCase();
+            const allCards = document.querySelectorAll('.card');
+            allCards.forEach(c => {
+                const match = c.dataset.nome.includes(term) || c.dataset.categoria.includes(term);
+                c.style.display = match ? '' : 'none';
+            });
+        }
+        btnSearch.addEventListener('click', performSearch);
+        q.addEventListener('keydown', (e) => { if (e.key === 'Enter') { performSearch(); } });
+
+        // Footer year
+        document.getElementById('yr').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
