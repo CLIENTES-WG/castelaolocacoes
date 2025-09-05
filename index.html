@@ -567,8 +567,6 @@
             margin-right: auto;
         }
 
-        /* 3) NÃO mexer nas seções de PRODUTOS (ficam à esquerda por padrão) */
-
         /* === Animações de entrada ao rolar (IntersectionObserver) === */
         .reveal-on-scroll {
             opacity: 0;
@@ -858,7 +856,6 @@
         </section>
     </main>
 
-
     <!-- Carrossel Sobre a Loja (centralizado) -->
     <section id="sobreLoja" class="section container" aria-label="Sobre a Loja" style="text-align:center;">
         <h2 style="margin-bottom:12px;">Sobre a Castelão Locações</h2>
@@ -894,8 +891,6 @@
             <div class="bullets" id="bulletsFooter"></div>
         </div>
     </section>
-
-
 
     <footer>
         <div class="footer-inner container">
@@ -964,23 +959,19 @@
             { id: 'p2', nome: 'Martelete perfurador 2 kg', categoria: 'Perfuração & Demolição', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6LSTvXYRKR_T7BOaBnDyYGa5aJLV7ToX0Iw&s' },
             { id: 'p3', nome: 'Martelete rompedor 5 kg', categoria: 'Perfuração & Demolição', img: 'https://antferramentas.vtexassets.com/arquivos/ids/177063/Martelete-Demolidor-Rompedor-SDS-Max-1100W-5Kg-Bosch-GSH-5-ant-ferramentas.jpg?v=637849538869930000' },
 
-            // =========================
             // ANDAIMES & ACESSO
             // =========================
             { id: 'p4', nome: 'Andaime tubular', categoria: 'Andaimes & Acesso', img: 'https://loctrad.com/wp-content/uploads/2023/10/Andaime-tubular.webp' },
             { id: 'p5', nome: 'Prancha/Painel metálico 1,5 m', categoria: 'Andaimes & Acesso', img: 'https://http2.mlstatic.com/D_NQ_NP_823784-MLB74251047053_012024-O.webp' },
 
-            // =========================
             // COMPACTAÇÃO
             // =========================
             { id: 'p7', nome: 'Compactador (Sapo)', categoria: 'Compactação', img: 'https://www.clickgeradores.com.br/img/products/photo/2605.jpg' },
 
-            // =========================
             // ENERGIA
             // =========================
             { id: 'p8', nome: 'Gerador 5 kVA', categoria: 'Energia', img: 'https://d1p6nzzdute2g.cloudfront.net/lojas/loja-36/9d2c7542-ef42-4fbe-a5f6-c71cee9e527a' },
 
-            // =========================
             // ADITIVOS
             // =========================
             { id: 'a1', nome: 'Plastificante para argamassa', categoria: 'Aditivos', img: 'https://images.tcdn.com.br/img/img_prod/554605/aditivo_plastificante_concentrado_para_argamassa_vedalit_18_l_vedacit_120127_1_a2f8f1264fa48c5d066524c5c1dc52e4.jpg' },
@@ -1067,7 +1058,6 @@
             q.addEventListener('input', performSearch);
         }
 
-
         // ===== Reveal on Scroll (produtos) =====
         (function () {
             const opts = { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 };
@@ -1087,7 +1077,6 @@
             // Se no futuro você chamar render() novamente, chame observeNewCards() em seguida.
             window._observeProductsOnScroll = observeNewCards;
         })();
-
 
         // Footer year
         document.getElementById('yr').textContent = new Date().getFullYear();
@@ -1123,8 +1112,6 @@
             renderBullets();
             autoplay();
         })();
-
-
     </script>
 </body>
 
