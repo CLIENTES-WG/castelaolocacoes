@@ -488,6 +488,34 @@
                 grid-template-columns: repeat(4, 1fr)
             }
         }
+
+        /* Centralização específica do carrossel "Sobre a Loja" */
+        #carouselFooter {
+            margin: 0 auto;
+            max-width: 820px;
+            width: 100%;
+        }
+
+        #carouselFooter .slide-inner {
+            grid-template-columns: 1fr !important;
+            /* força 1 coluna no desktop */
+            justify-items: center;
+            text-align: center;
+        }
+
+        #carouselFooter .hero-img {
+            width: 100%;
+            height: auto;
+            /* evita cortar no mobile */
+            max-height: 360px;
+            /* limite opcional no desktop */
+            object-fit: cover;
+        }
+
+        #carouselFooter .slide-sub {
+            max-width: 680px;
+            margin: 8px auto 0;
+        }
     </style>
 </head>
 
@@ -629,12 +657,62 @@
             <div class="grid" id="gridAndaime"></div>
         </section>
 
+        <section class="section container" aria-label="Compactação">
+            <h2>Compactação</h2>
+            <div class="grid" id="gridCompactacao"></div>
+        </section>
+
+        <section class="section container" aria-label="Energia">
+            <h2>Energia</h2>
+            <div class="grid" id="gridEnergia"></div>
+        </section>
+
+
         <!-- NOVA SEÇÃO: Aditivos para Concreto e Argamassa -->
         <section class="section container" aria-label="Aditivos para Concreto e Argamassa">
             <h2>Aditivos para Concreto e Argamassa</h2>
             <div class="grid" id="gridAditivos"></div>
         </section>
     </main>
+
+
+    <!-- Carrossel Sobre a Loja (centralizado) -->
+    <section class="section container" aria-label="Sobre a Loja" style="text-align:center;">
+        <h2 style="margin-bottom:12px;">Sobre a Castelão Locações</h2>
+        <div class="carousel" id="carouselFooter" style="margin:0 auto; max-width:820px; width:100%;">
+            <div class="slides" id="slidesFooter">
+                <article class="slide">
+                    <div class="slide-inner">
+                        <img class="hero-img"
+                            src="https://lh3.googleusercontent.com/p/AF1QipOSi5W1ABrUwe9UIwFtFdb110V43WhKHzwMJBRu=s1360-w1360-h1020-rw"
+                            alt="Fachada da loja Castelão Locações">
+                        <p class="slide-sub">Nossa loja em Sinop, referência em locação de equipamentos.</p>
+                    </div>
+                </article>
+                <article class="slide">
+                    <div class="slide-inner">
+                        <img class="hero-img"
+                            src="https://lh3.googleusercontent.com/p/AF1QipM1Mklh2reQAHLYJpcuxgMj-al9qvxSgB1dY7zD=s1360-w1360-h1020-rw"
+                            alt="Interior da loja Castelão Locações">
+                        <p class="slide-sub">Estrutura moderna e equipamentos sempre revisados.</p>
+                    </div>
+                </article>
+                <article class="slide">
+                    <div class="slide-inner">
+                        <img class="hero-img"
+                            src="https://lh3.googleusercontent.com/p/AF1QipMSke_lcq00eFK1BLwL8dX3NVz8ueGPDt6ShLZC=s1360-w1360-h1020-rw"
+                            alt="Equipe Castelão Locações">
+                        <p class="slide-sub">Equipe preparada para oferecer o melhor atendimento.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="ctrl prev"><button class="ctrl-btn" id="prevFooter">&#10094;</button></div>
+            <div class="ctrl next"><button class="ctrl-btn" id="nextFooter">&#10095;</button></div>
+            <div class="bullets" id="bulletsFooter"></div>
+        </div>
+    </section>
+
+
 
     <footer>
         <div class="footer-inner container">
@@ -647,10 +725,10 @@
                 <div class="socials">
                     <a class="social" target="_blank" rel="noopener"
                         href="https://wa.me/5566992350616?text=Ol%C3%A1!%20Vim%20pelo%20site.">WhatsApp</a>
-                    <a class="social" target="_blank" rel="noopener" href="https://www.instagram.com/castelaolocacaovendas.sinop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        aria-label="Instagram">Instagram</a>
                     <a class="social" target="_blank" rel="noopener"
-                        href="https://maps.app.goo.gl/FRiKYUsLcD2uzsvy8"
+                        href="https://www.instagram.com/castelaolocacaovendas.sinop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        aria-label="Instagram">Instagram</a>
+                    <a class="social" target="_blank" rel="noopener" href="https://maps.app.goo.gl/FRiKYUsLcD2uzsvy8"
                         aria-label="Localização">Localização</a>
                 </div>
                 <div class="small">© <span id="yr"></span> Castelão Locações — Sinop‑MT</div>
@@ -691,50 +769,82 @@
 
         // ===== Produtos (dados simples para exemplo) =====
         const produtos = [
+
+            // CONCRETAGEM
+            // =========================
             { id: 'p1', nome: 'Betoneira 400 L', categoria: 'Concretagem', img: 'https://img.lojadomecanico.com.br/IMAGENS/31/284/147416/1596113228463.JPG' },
+            { id: 'p6', nome: 'Vibrador de imersão', categoria: 'Concretagem', img: 'https://img.lojadomecanico.com.br/IMAGENS/31/572/75454/1703608875363.JPG' },
+
+
+            // PERFURAÇÃO & DEMOLIÇÃO
+            // =========================
             { id: 'p2', nome: 'Martelete perfurador 2 kg', categoria: 'Perfuração & Demolição', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6LSTvXYRKR_T7BOaBnDyYGa5aJLV7ToX0Iw&s' },
             { id: 'p3', nome: 'Martelete rompedor 5 kg', categoria: 'Perfuração & Demolição', img: 'https://antferramentas.vtexassets.com/arquivos/ids/177063/Martelete-Demolidor-Rompedor-SDS-Max-1100W-5Kg-Bosch-GSH-5-ant-ferramentas.jpg?v=637849538869930000' },
+
+            // =========================
+            // ANDAIMES & ACESSO
+            // =========================
             { id: 'p4', nome: 'Andaime tubular', categoria: 'Andaimes & Acesso', img: 'https://loctrad.com/wp-content/uploads/2023/10/Andaime-tubular.webp' },
             { id: 'p5', nome: 'Prancha/Painel metálico 1,5 m', categoria: 'Andaimes & Acesso', img: 'https://http2.mlstatic.com/D_NQ_NP_823784-MLB74251047053_012024-O.webp' },
-            { id: 'p6', nome: 'Vibrador de imersão', categoria: 'Concretagem', img: 'https://img.lojadomecanico.com.br/IMAGENS/31/572/75454/1703608875363.JPG' },
-            { id: 'p7', nome: 'Compactador (Sapo)', categoria: 'Compactação', img: 'https://www.dutramaquinas.com.br/shared/img/produto/alta/496964_compactador_de_solo_tipo_sapo_a_gasolina_330_x_290_mm_4_hp_4t_com_rodas_ttr80zm_xp.webp' },
+
+            // =========================
+            // COMPACTAÇÃO
+            // =========================
+            { id: 'p7', nome: 'Compactador (Sapo)', categoria: 'Compactação', img: 'https://www.clickgeradores.com.br/img/products/photo/2605.jpg' },
+
+            // =========================
+            // ENERGIA
+            // =========================
             { id: 'p8', nome: 'Gerador 5 kVA', categoria: 'Energia', img: 'https://d1p6nzzdute2g.cloudfront.net/lojas/loja-36/9d2c7542-ef42-4fbe-a5f6-c71cee9e527a' },
-            /* Aditivos */
+
+            // =========================
+            // ADITIVOS
+            // =========================
             { id: 'a1', nome: 'Plastificante para argamassa', categoria: 'Aditivos', img: 'https://images.tcdn.com.br/img/img_prod/554605/aditivo_plastificante_concentrado_para_argamassa_vedalit_18_l_vedacit_120127_1_a2f8f1264fa48c5d066524c5c1dc52e4.jpg' },
             { id: 'a2', nome: 'Impermeabilizante para concreto', categoria: 'Aditivos', img: 'https://images.tcdn.com.br/img/img_prod/1019484/impermeabilizante_para_concreto_sos_concreto_1l_135_1_f3395d4b14ef4cb90b875cad2cd3e2fd.png' },
             { id: 'a3', nome: 'Aditivo adesivo (cola PVA)', categoria: 'Aditivos', img: 'https://http2.mlstatic.com/D_Q_NP_925134-MLA80836960919_112024-O.webp' },
             { id: 'a4', nome: 'Acelerador de pega', categoria: 'Aditivos', img: 'https://distribuidorasika.vtexassets.com/arquivos/ids/156069-800-800?v=638001184466400000&width=800&height=800&aspect=true' }
         ];
 
+
         const gridMais = document.getElementById('gridMais');
         const gridConc = document.getElementById('gridConcretagem');
         const gridPerf = document.getElementById('gridPerfuracao');
         const gridAnd = document.getElementById('gridAndaime');
         const gridAditivos = document.getElementById('gridAditivos');
+        const gridCompactacao = document.getElementById('gridCompactacao');
+        const gridEnergia = document.getElementById('gridEnergia');
+
 
         function cardHTML(p) {
             const text1 = encodeURIComponent(`Olá! Quero alugar ${p.nome}.`);
             return `
-      <article class="card" data-nome="${p.nome.toLowerCase()}" data-categoria="${p.categoria.toLowerCase()}">
-        <img src="${p.img}" alt="${p.nome}">
-        <div>
-          <h3>${p.nome}</h3>
-          <div class="meta">${p.categoria}</div>
-        </div>
-        <div class="actions">
-          <a class="btn-pill btn-primary" target="_blank" rel="noopener" href="https://wa.me/5566992350616?text=${text1}">WhatsApp V1</a>
-          <a class="btn-pill btn-outline" target="_blank" rel="noopener" href="https://wa.me/5566992430422?text=${text1}">WhatsApp V2</a>
-        </div>
-      </article>`
+          <article class="card" data-nome="${p.nome.toLowerCase()}" data-categoria="${p.categoria.toLowerCase()}">
+            <img src="${p.img}" alt="${p.nome}">
+            <div>
+              <h3>${p.nome}</h3>
+              <div class="meta">${p.categoria}</div>
+            </div>
+            <div class="actions">
+              <a class="btn-pill btn-primary" target="_blank" rel="noopener" href="https://wa.me/5566992350616?text=${text1}">WhatsApp V1</a>
+              <a class="btn-pill btn-outline" target="_blank" rel="noopener" href="https://wa.me/5566992430422?text=${text1}">WhatsApp V2</a>
+            </div>
+          </article>`
         }
 
         function render() {
             gridMais.innerHTML = produtos.slice(0, 4).map(cardHTML).join('');
+
             gridConc.innerHTML = produtos.filter(p => p.categoria.includes('Concretagem')).map(cardHTML).join('');
             gridPerf.innerHTML = produtos.filter(p => p.categoria.includes('Perfuração')).map(cardHTML).join('');
             gridAnd.innerHTML = produtos.filter(p => p.categoria.includes('Andaimes')).map(cardHTML).join('');
             gridAditivos.innerHTML = produtos.filter(p => p.categoria.includes('Aditivos')).map(cardHTML).join('');
+
+            // NOVO:
+            gridCompactacao.innerHTML = produtos.filter(p => p.categoria.includes('Compactação')).map(cardHTML).join('');
+            gridEnergia.innerHTML = produtos.filter(p => p.categoria.includes('Energia')).map(cardHTML).join('');
         }
+
         render();
 
         // ===== Busca de produtos =====
@@ -753,6 +863,40 @@
 
         // Footer year
         document.getElementById('yr').textContent = new Date().getFullYear();
+
+        // ===== Carousel Sobre a Loja (autoplay + centralizado) =====
+        (function () {
+            const slides = document.getElementById('slidesFooter');
+            const bulletsWrap = document.getElementById('bulletsFooter');
+            const total = slides.children.length;
+            let index = 0, timer;
+
+            function renderBullets() {
+                bulletsWrap.innerHTML = '';
+                for (let i = 0; i < total; i++) {
+                    const b = document.createElement('span');
+                    b.className = 'dot' + (i === index ? ' active' : '');
+                    b.addEventListener('click', () => goTo(i));
+                    bulletsWrap.appendChild(b);
+                }
+            }
+            function goTo(i) {
+                index = (i + total) % total;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+                renderBullets();
+                restart();
+            }
+            function next() { goTo(index + 1); }
+            function prev() { goTo(index - 1); }
+            document.getElementById('nextFooter').addEventListener('click', next);
+            document.getElementById('prevFooter').addEventListener('click', prev);
+            function autoplay() { timer = setInterval(next, 4000); }
+            function restart() { clearInterval(timer); autoplay(); }
+            renderBullets();
+            autoplay();
+        })();
+
+
     </script>
 </body>
 
